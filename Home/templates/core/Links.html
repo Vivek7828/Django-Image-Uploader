@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <link rel="icon" href="static/favicon.ico" />
+    <title>All Links</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cookie&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="lex col text-center">
+        <h2>Get Your All Link Here</h2>
+      </div>
+      <div class="text-center">
+      <h1> All Links are:- </h1>
+        {% csrf_token %}
+        <div class="row">
+          {% for x in img %}
+          <p>  <a class="text-danger my-2 fs-4 fw-bold" href="{{x.photo.url}}" target="_blank"> {{x.photo.url}} </a> --:  <small class="fs-4 fw-italic">     {{x.date}}</small></p> 
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
